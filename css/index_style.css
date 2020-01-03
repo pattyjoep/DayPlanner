@@ -1,0 +1,21 @@
+h5 {
+    float: left;
+}
+
+.current_date {
+    float: right;
+}
+
+
+.SaveBtn {
+    background-color: blue;
+    padding: 5px;
+    margin-top: 10px;
+    float: right;
+
+}
+
+textarea {
+    border-radius: 5px;
+    width: 90%
+}
