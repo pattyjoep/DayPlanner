@@ -7,22 +7,27 @@ $(document).ready(function() {
     var DateDisplay = document.querySelector("#currentDate")
     var currentDate = moment().format('LL');
 
+    // var Time = moment().format('LTS');
+    // var TimeDisplay = document.querySelector("#currentTime")
+        
     DateDisplay.textContent = currentDate
+    //TimeDisplay.textContent = Time
 
-
-    var Time = moment().format('LTS');
-    var TimeDisplay = document.querySelector("#currentTime")
-
-    TimeDisplay.textContent = Time
 
     var newSaveAllBtn = $("<button>")
     var newCompleteAllBtn = $("<button>")
+    var FAusb = $("<i>")
 
-    newSaveAllBtn.text("Save All")
+    newSaveAllBtn.text(" (All)")
     newSaveAllBtn.attr({
         id: "SaveAllBtn",
         class: "SaveAllBtn btn btn-primary"
     })
+
+    FAusb.attr("class", "fa fa-usb")
+
+    newSaveAllBtn.prepend(FAusb)
+
 
     newCompleteAllBtn.text("✓ (All)")
     newCompleteAllBtn.attr({
@@ -53,12 +58,16 @@ function ListTimes() {
         var newToDO = $("<textarea>");
         var newSaveBtn = $("<button>");
         var newCompleteBtn = $("<button>");
+        var FAusb = $("<i>")
 
-        newSaveBtn.text("Save")
         newSaveBtn.attr({
             class: "SaveBtn btn btn-primary",
             id: "SaveBtn",
         });
+
+        FAusb.attr("class", "fa fa-usb")
+
+        newSaveBtn.append(FAusb)
 
         newCompleteBtn.text("✓")
         newCompleteBtn.attr({
@@ -75,6 +84,87 @@ function ListTimes() {
     
         $("tbody").append(newRow);
 
+        var currentHour = moment().hour()
+        var NineAM = $("#txt9AM")
+            if (currentHour < 9){
+                NineAM.attr("class", "futureHr")
+            } else if (currentHour === 9) {
+                NineAM.attr("class", "currentHr")
+            } else {
+                NineAM.attr("class", "pastHr")
+            }
+
+        var TenAM = $("#txt10AM")
+            if (currentHour < 10){
+                TenAM.attr("class", "futureHr")
+            } else if (currentHour === 10) {
+                TenAM.attr("class", "currentHr")
+            } else {
+                TenAM.attr("class", "pastHr")
+            }
+
+        var ElevenAM = $("#txt11AM")
+            if (currentHour < 11){
+                ElevenAM.attr("class", "futureHr")
+            } else if (currentHour === 11) {
+                ElevenAM.attr("class", "currentHr")
+            } else {
+                ElevenAM.attr("class", "pastHr")
+            }
+
+        var TwelveAM = $("#txt12PM")
+            if (currentHour < 12){
+                TwelveAM.attr("class", "futureHr")
+            } else if (currentHour === 12) {
+                TwelveAM.attr("class", "currentHr")
+            } else {
+                TwelveAM.attr("class", "pastHr")
+            }
+            
+        var OnePM = $("#txt1PM")
+            if (currentHour < 13){
+                OnePM.attr("class", "futureHr")
+            } else if (currentHour === 13) {
+                OnePM.attr("class", "currentHr")
+            } else {
+                OnePM.attr("class", "pastHr")
+            }
+
+        var TwoPM = $("#txt2PM")
+            if (currentHour < 14){
+                TwoPM.attr("class", "futureHr")
+            } else if (currentHour === 14) {
+                TwoPM.attr("class", "currentHr")
+            } else {
+                TwoPM.attr("class", "pastHr")
+            }
+
+        var ThreePM = $("#txt3PM")
+            if (currentHour < 15){
+                ThreePM.attr("class", "futureHr")
+            } else if (currentHour === 15) {
+                ThreePM.attr("class", "currentHr")
+            } else {
+                ThreePM.attr("class", "pastHr")
+            }
+
+            var FourPM = $("#txt4PM")
+            if (currentHour < 16){
+                FourPM.attr("class", "futureHr")
+            } else if (currentHour === 16) {
+                FourPM.attr("class", "currentHr")
+            } else {
+                FourPM.attr("class", "pastHr")
+            }
+
+            var FivePM = $("#txt5PM")
+            if (currentHour < 17){
+                FivePM.attr("class", "futureHr")
+            } else if (currentHour === 17) {
+                FivePM.attr("class", "currentHr")
+            } else {
+                FivePM.attr("class", "pastHr")
+            }
     }
 }
 ListTimes();
@@ -267,7 +357,8 @@ $(document).on("click", "#CompleteAllBtn", function() {
             window.location.reload()
         } 
         else {
-            alert("Tasks Remain")
+            
         }
 });
+
 

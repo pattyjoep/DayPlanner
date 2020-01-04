@@ -28,3 +28,15 @@ textarea {
     border-radius: 5px;
     width: 85%
 }
+
+.currentHr {
+    background-color: rgb(182, 182, 182);
+}
+
+.pastHr {
+    background-color: rgb(255, 107, 107);
+}
+
+.futureHr {
+    background-color: rgb(58, 255, 133);
+}
