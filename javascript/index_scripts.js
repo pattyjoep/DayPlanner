@@ -1,4 +1,5 @@
 var TimeWorkDay = ["9AM","10AM","11AM","12PM","1PM","2PM","3PM","4PM","5PM"]
+var TimeMilitary = [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23]
 var Table = $("#TimeTable")
 
 $(document).ready(function() {
@@ -23,14 +24,13 @@ $(document).ready(function() {
         class: "SaveAllBtn btn btn-primary"
     })
 
-    newCompleteAllBtn.text("Complete All")
+    newCompleteAllBtn.text("✓ (All)")
     newCompleteAllBtn.attr({
         id: "CompleteAllBtn",
         class: "CompleteAllBtn btn btn-success"
     })
 
     $("#headerBtn").append(newSaveAllBtn, newCompleteAllBtn)
-
 
     $("#txt9AM").text(localStorage.getItem("ToDo9AM"))
     $("#txt10AM").text(localStorage.getItem("ToDo10AM"))
@@ -60,7 +60,7 @@ function ListTimes() {
             id: "SaveBtn",
         });
 
-        newCompleteBtn.text("Complete")
+        newCompleteBtn.text("✓")
         newCompleteBtn.attr({
             id: "CompleteBtn" + TimeWorkDay[i],
             class: "CompleteBtn btn btn-success"
@@ -85,6 +85,8 @@ $("#Btn9AM").click(function(){
     var Txt9AM = $("#txt9AM").val()
     localStorage.setItem("ToDo9AM", Txt9AM)
 
+    window.location.reload()
+
 });
 
 $("#Btn10AM").click(function(){
@@ -92,12 +94,16 @@ $("#Btn10AM").click(function(){
     var Txt10AM = $("#txt10AM").val()
     localStorage.setItem("ToDo10AM", Txt10AM)
 
+    window.location.reload()
+
 });
 
 $("#Btn11AM").click(function(){
    
     var Txt11AM = $("#txt11AM").val()
     localStorage.setItem("ToDo11AM", Txt11AM)
+
+    window.location.reload()
       
 });
 
@@ -105,6 +111,8 @@ $("#Btn12PM").click(function(){
    
     var Txt12PM = $("#txt12PM").val()
     localStorage.setItem("ToDo12PM", Txt12PM)
+
+    window.location.reload()
      
 });
 
@@ -112,12 +120,16 @@ $("#Btn1PM").click(function(){
     
     var Txt1PM = $("#txt1PM").val()
     localStorage.setItem("ToDo1PM", Txt1PM)
+
+    window.location.reload()
 });
 
 $("#Btn2PM").click(function(){
     
     var Txt2PM = $("#txt2PM").val()
     localStorage.setItem("ToDo2PM", Txt2PM)
+
+    window.location.reload()
      
 });
 
@@ -125,6 +137,8 @@ $("#Btn3PM").click(function(){
    
     var Txt3PM = $("#txt3PM").val()
     localStorage.setItem("ToDo3PM", Txt3PM)
+
+    window.location.reload()
      
 });
 
@@ -133,6 +147,8 @@ $("#Btn4PM").click(function(){
    
     var Txt4PM = $("#txt4PM").val()
     localStorage.setItem("ToDo4PM", Txt4PM)
+
+    window.location.reload()
       
 });
 
@@ -140,7 +156,72 @@ $("#Btn5PM").click(function(){
     
     var Txt5PM = $("#txt5PM").val()
     localStorage.setItem("ToDo5PM", Txt5PM)
+
+    window.location.reload()
      
+});
+
+$("#CompleteBtn9AM").click(function(){
+
+    localStorage.removeItem("ToDo9AM")
+    window.location.reload()
+    
+});
+
+$("#CompleteBtn10AM").click(function(){
+
+    localStorage.removeItem("ToDo10AM")
+    window.location.reload()
+    
+});
+
+$("#CompleteBtn11AM").click(function(){
+
+    localStorage.removeItem("ToDo11AM")
+    window.location.reload()
+    
+});
+
+$("#CompleteBtn12PM").click(function(){
+
+    localStorage.removeItem("ToDo12PM")
+    window.location.reload()
+    
+});
+
+$("#CompleteBtn1PM").click(function(){
+
+    localStorage.removeItem("ToDo1PM")
+    window.location.reload()
+    
+});
+
+$("#CompleteBtn2PM").click(function(){
+
+    localStorage.removeItem("ToDo2PM")
+    window.location.reload()
+    
+});
+
+$("#CompleteBtn3PM").click(function(){
+
+    localStorage.removeItem("ToDo3PM")
+    window.location.reload()
+    
+});
+
+$("#CompleteBtn4PM").click(function(){
+
+    localStorage.removeItem("ToDo4PM")
+    window.location.reload()
+    
+});
+
+$("#CompleteBtn5PM").click(function(){
+
+    localStorage.removeItem("ToDo5PM")
+    window.location.reload()
+    
 });
 
 $(document).on("click", "#SaveAllBtn", function() {
@@ -164,20 +245,29 @@ $(document).on("click", "#SaveAllBtn", function() {
     localStorage.setItem("ToDo3PM", Txt3PM)
     localStorage.setItem("ToDo4PM", Txt4PM)
     localStorage.setItem("ToDo5PM", Txt5PM)
+
+    window.location.reload()
 });
 
 $(document).on("click", "#CompleteAllBtn", function() {
 
-    localStorage.removeItem("ToDo9AM")
-    localStorage.removeItem("ToDo10AM")
-    localStorage.removeItem("ToDo11AM")
-    localStorage.removeItem("ToDo12PM")
-    localStorage.removeItem("ToDo1PM")
-    localStorage.removeItem("ToDo2PM")
-    localStorage.removeItem("ToDo3PM")
-    localStorage.removeItem("ToDo4PM")
-    localStorage.removeItem("ToDo5PM")
+    var Confirm = confirm("Are you sure you want to complete all tasks?")
+        if (Confirm === true){
 
-    window.location.reload()
+            localStorage.removeItem("ToDo9AM")
+            localStorage.removeItem("ToDo10AM")
+            localStorage.removeItem("ToDo11AM")
+            localStorage.removeItem("ToDo12PM")
+            localStorage.removeItem("ToDo1PM")
+            localStorage.removeItem("ToDo2PM")
+            localStorage.removeItem("ToDo3PM")
+            localStorage.removeItem("ToDo4PM")
+            localStorage.removeItem("ToDo5PM")
+
+            window.location.reload()
+        } 
+        else {
+            alert("Tasks Remain")
+        }
 });
 
