@@ -7,14 +7,24 @@ h5 {
 }
 
 .SaveBtn {
-    background-color: blue;
     padding: 5px;
     margin-top: 10px;
     float: right;
 
 }
 
+.CompleteBtn {
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 5px;
+    float: right;
+}
+
+.CompleteAllBtn {
+    margin-left: 5px;
+}
+
 textarea {
     border-radius: 5px;
-    width: 90%
+    width: 85%
 }
