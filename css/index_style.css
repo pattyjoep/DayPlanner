@@ -40,3 +40,7 @@ textarea {
 .futureHr {
     background-color: rgb(58, 255, 133);
 }
+
+.hourlbl {
+    width: 10%;
+}

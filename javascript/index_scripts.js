@@ -76,7 +76,11 @@ function ListTimes() {
         });
 
         newSaveBtn.attr("id", "Btn" + TimeWorkDay[i])
-        newHour.attr("id", "label" + TimeWorkDay[i])
+        newHour.attr({
+            id: "label" + TimeWorkDay[i],
+            class: "hourlbl"
+        });
+        
         newToDO.attr("id", "txt" + TimeWorkDay[i])
 
 
