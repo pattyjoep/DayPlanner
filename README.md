@@ -14,3 +14,5 @@ the green complete buttons remove the logged local storage item corresponding to
 the save all button logs all of the text area values at once and te complete all button removes all of the logged items at once if the confrimation window is confirmed.
 
 each button refreshes the page as well so the user receives the most updated page.
+
+URL: https://github.com/pjpetro/DayPlanner
