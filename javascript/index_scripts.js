@@ -17,6 +17,7 @@ $(document).ready(function() {
     var newSaveAllBtn = $("<button>")
     var newCompleteAllBtn = $("<button>")
     var FAusb = $("<i>")
+    var FaDelete = $("<i>")
 
     newSaveAllBtn.text(" (All)")
     newSaveAllBtn.attr({
@@ -24,16 +25,20 @@ $(document).ready(function() {
         class: "SaveAllBtn btn btn-primary"
     })
 
-    FAusb.attr("class", "fa fa-usb")
+    FAusb.attr("class", "fa fa-save")
 
     newSaveAllBtn.prepend(FAusb)
 
 
-    newCompleteAllBtn.text("✓ (All)")
+    newCompleteAllBtn.text(" (All)")
     newCompleteAllBtn.attr({
         id: "CompleteAllBtn",
-        class: "CompleteAllBtn btn btn-success"
+        class: "CompleteAllBtn btn btn-danger"
     })
+    
+    FaDelete.attr("class", "fa fa-trash")
+    newCompleteAllBtn.prepend(FaDelete)
+
 
     $("#headerBtn").append(newSaveAllBtn, newCompleteAllBtn)
 
@@ -59,21 +64,24 @@ function ListTimes() {
         var newSaveBtn = $("<button>");
         var newCompleteBtn = $("<button>");
         var FAusb = $("<i>")
+        var FaDelete = $("<i>")
 
         newSaveBtn.attr({
             class: "SaveBtn btn btn-primary",
             id: "SaveBtn",
         });
 
-        FAusb.attr("class", "fa fa-usb")
+        FAusb.attr("class", "fa fa-save")
 
         newSaveBtn.append(FAusb)
 
-        newCompleteBtn.text("✓")
         newCompleteBtn.attr({
             id: "CompleteBtn" + TimeWorkDay[i],
-            class: "CompleteBtn btn btn-success"
+            class: "CompleteBtn btn btn-danger"
         });
+
+        FaDelete.attr("class", "fa fa-trash")
+        newCompleteBtn.append(FaDelete)
 
         newSaveBtn.attr("id", "Btn" + TimeWorkDay[i])
         newHour.attr({
