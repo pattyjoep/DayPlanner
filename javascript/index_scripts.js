@@ -6,13 +6,8 @@ $(document).ready(function() {
 
     var DateDisplay = document.querySelector("#currentDate")
     var currentDate = moment().format('LL');
-
-    // var Time = moment().format('LTS');
-    // var TimeDisplay = document.querySelector("#currentTime")
-        
+    
     DateDisplay.textContent = currentDate
-    //TimeDisplay.textContent = Time
-
 
     var newSaveAllBtn = $("<button>")
     var newCompleteAllBtn = $("<button>")
