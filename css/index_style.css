@@ -1,46 +1,79 @@
-h5 {
-    float: left;
+.main-row {
+    height: 100vh;
 }
 
-.current_date {
-    float: right;
+.col {
+    border-right: 1px solid #e8e8e8;
+    padding: 0;
 }
 
-.SaveBtn {
-    padding: 5px;
-    margin-top: 10px;
-    float: right;
-
+.list-group {
+    position: relative;
 }
 
-.CompleteBtn {
-    padding: 5px;
-    margin-top: 10px;
-    margin-left: 5px;
-    float: right;
+.list-group:hover {
+    background-color: #5c5f61;
+    cursor: pointer;
 }
 
-.CompleteAllBtn {
-    margin-left: 5px;
+.list-group-item {
+    background-color: #f3f3f3;
+}
+
+.navbar-brand {
+    font-size: 1rem !important;
+}
+
+.add-button {
+    border: none;
+    color: #fff;
+    background-color: #5c5f61;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+}
+
+.add-button:hover {
+    color: #5c5f61;
+    background-color: #fff;
+}
+
+.save-button, .delete-button {
+    position: absolute;
+    bottom: -2px;
+}
+
+.save-button {
+    left: -2px;
+    color: #fff;
+    background-color: #00a600;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.delete-button {
+    right: -2px;
+    color: #fff;
+    background-color: #ea4747;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+input, textarea {
+    width: 100%;
+    background-color: transparent;
+    border: none;
 }
 
 textarea {
-    border-radius: 5px;
-    width: 85%
+  height: 150px;
 }
 
-.currentHr {
-    background-color: rgb(182, 182, 182);
-}
-
-.pastHr {
-    background-color: rgb(255, 107, 107);
-}
-
-.futureHr {
-    background-color: rgb(58, 255, 133);
-}
-
-.hourlbl {
-    width: 10%;
+input:focus, textarea:focus{
+    background-color: #fff
 }
