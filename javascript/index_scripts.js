@@ -5,7 +5,19 @@ const inProgressCol = $("#inProgress");
 const doneCol = $("#done");
 
 $(document).ready(function() {
-    alert("Welcome to Task Manager! Click the add (+) button on the 'To Do' column to add a new task. Save it, and drag it to the other columns as needed!");
+    const dissmissedWelcomeAlert = localStorage.getItem("dissmissedWelcomeAlert");
+    if (dissmissedWelcomeAlert === "true") {
+       
+    } else {
+        const dissmissedWelcomeAlert = confirm("Welcome to Task Manager! Click the add (+) button on the 'To Do' column to add a new task. Save it, and drag it to the other columns as needed!");
+        if (dissmissedWelcomeAlert === true) {
+            localStorage.setItem("dissmissedWelcomeAlert", true)
+        } else {
+            localStorage.setItem("dissmissedWelcomeAlert", true)
+        }
+    }
+
+   
 
     var tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
     tasks.forEach(function(task) {
