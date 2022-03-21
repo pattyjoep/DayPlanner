@@ -5,6 +5,8 @@ const inProgressCol = $("#inProgress");
 const doneCol = $("#done");
 
 $(document).ready(function() {
+    alert("Welcome to Task Manager! Click the add (+) button on the 'To Do' column to add a new task. Save it, and drag it to the other columns as needed!");
+
     var tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
     tasks.forEach(function(task) {
         
@@ -42,11 +44,8 @@ $(document).ready(function() {
     });
 
     const DateDisplay = $("#currentDate");
-    const addedDate = $("#addedDate");
     var currentDate = moment().format('LL');
-    
-    DateDisplay.text(currentDate)
-    addedDate.text(currentDate)
+    DateDisplay.text(currentDate);
 });
 
 $(".add-button").click( () => {
