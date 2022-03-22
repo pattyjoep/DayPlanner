@@ -21,11 +21,11 @@ $(document).ready(function() {
     tasks.forEach(function(task) {
         const listGroup = $("<div id='" + task.id + "'" + "class='list-group m-2 text-center' draggable='true' ondragstart='drag(event)'>");
         const listGroupItem = $("<div id='item_" + task.id + "'" + "class='list-group-item list-group-item-action'>");
-        const inputTitle = $("<input id='title_" + task.id + "'" + "placeholder='Task Title' />");
+        const inputTitle = $("<input id='title_" + task.id + "'" + "placeholder='Title' />");
         inputTitle.val(task.title)
-        const textarea = $("<textarea id='details_" + task.id + "'" + "placeholder='Task Details...'>");
+        const textarea = $("<textarea id='details_" + task.id + "'" + "placeholder='Details...'>");
         textarea.text(task.details)
-        const smallText = $("<small id='dateCreated_" + task.id + "'" + "class='added-date'>");
+        const smallText = $("<p id='dateCreated_" + task.id + "'" + "class='added-date'>");
         smallText.text(task.dateCreated);
         const saveButton = $("<button class='save-button' onclick='save(" + task.id + ")" + "'>");
         const deleteButton = $("<button class='delete-button' onclick='deleteTask(" + task.id + ")" + "'>");
@@ -68,9 +68,9 @@ $(".add-button").click( () => {
     const currentDate = moment().format('l, h:mm:ss a');
     const listGroup = $("<div id='" + idNewTask + "'" + "class='list-group m-2 text-center' draggable='true' ondragstart='drag(event)'>");
     const listGroupItem = $("<div id='item_" + idNewTask + "'" + "class='list-group-item list-group-item-action'>");
-    const inputTitle = $("<input id='title_" + idNewTask + "'" + "placeholder='Task Title' />");
-    const textarea = $("<textarea id='details_" + idNewTask + "'" + "placeholder='Task Details...'>")
-    const smallText = $("<small id='dateCreated_" + idNewTask + "'" + "class='added-date'>");
+    const inputTitle = $("<input id='title_" + idNewTask + "'" + "placeholder='Title' />");
+    const textarea = $("<textarea id='details_" + idNewTask + "'" + "placeholder='Details...'>")
+    const smallText = $("<p id='dateCreated_" + idNewTask + "'" + "class='added-date'>");
     smallText.text("Created: " + currentDate);
     const saveButton = $("<button class='save-button' onclick='save(" + idNewTask + ")" + "'>");
     const deleteButton = $("<button class='delete-button' onclick='deleteTask(" + idNewTask + ")" + "'>");
