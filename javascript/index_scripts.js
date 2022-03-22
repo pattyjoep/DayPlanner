@@ -109,6 +109,8 @@ function save(task) {
 
     // save to local storage
     localStorage.setItem("tasks", JSON.stringify(tasks)); 
+    
+    alert("Task Saved!");
 }
 
 function deleteTask(task) {
