@@ -27,8 +27,10 @@
 .add-button {
     border: none;
     color: #fff;
-    background-color: #5c5f61;
+    background-color: transparent;
     border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
 }
 
 .add-button:hover {
