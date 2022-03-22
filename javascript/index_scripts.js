@@ -17,27 +17,18 @@ $(document).ready(function() {
         }
     }
 
-   
-
     var tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
     tasks.forEach(function(task) {
-        
         const listGroup = $("<div id='" + task.id + "'" + "class='list-group m-2 text-center' draggable='true' ondragstart='drag(event)'>");
-
         const listGroupItem = $("<div id='item_" + task.id + "'" + "class='list-group-item list-group-item-action'>");
-
         const inputTitle = $("<input id='title_" + task.id + "'" + "placeholder='Task Title' />");
         inputTitle.val(task.title)
-
         const textarea = $("<textarea id='details_" + task.id + "'" + "placeholder='Task Details...'>");
         textarea.text(task.details)
-
         const smallText = $("<small id='dateCreated_" + task.id + "'" + "class='added-date'>");
         smallText.text(task.dateCreated);
-    
         const saveButton = $("<button class='save-button' onclick='save(" + task.id + ")" + "'>");
         const deleteButton = $("<button class='delete-button' onclick='deleteTask(" + task.id + ")" + "'>");
-    
         const faSave = $("<i class='fa fa-save'></i>");
         const faDelete = $("<i class='fa fa-trash'></i>");
     
@@ -56,7 +47,7 @@ $(document).ready(function() {
     });
 
     const DateDisplay = $("#currentDate");
-    var currentDate = moment().format('LL');
+    const currentDate = moment().format('LL');
     DateDisplay.text(currentDate);
 });
 
@@ -73,26 +64,21 @@ $(".add-button").click( () => {
         // idNewTask.push(number);
         
     }
-    var idNewTask = idNewTaskArray.join('').toString();
-    console.log(idNewTask)
-    var currentDate = moment().format('l, h:mm:ss a');
-    
+    const idNewTask = idNewTaskArray.join('').toString();
+    const currentDate = moment().format('l, h:mm:ss a');
     const listGroup = $("<div id='" + idNewTask + "'" + "class='list-group m-2 text-center' draggable='true' ondragstart='drag(event)'>");
     const listGroupItem = $("<div id='item_" + idNewTask + "'" + "class='list-group-item list-group-item-action'>");
     const inputTitle = $("<input id='title_" + idNewTask + "'" + "placeholder='Task Title' />");
     const textarea = $("<textarea id='details_" + idNewTask + "'" + "placeholder='Task Details...'>")
     const smallText = $("<small id='dateCreated_" + idNewTask + "'" + "class='added-date'>");
     smallText.text("Created: " + currentDate);
-
     const saveButton = $("<button class='save-button' onclick='save(" + idNewTask + ")" + "'>");
     const deleteButton = $("<button class='delete-button' onclick='deleteTask(" + idNewTask + ")" + "'>");
-
     const faSave = $("<i class='fa fa-save'></i>");
     const faDelete = $("<i class='fa fa-trash'></i>");
 
     saveButton.append(faSave);
     deleteButton.append(faDelete);
-
     listGroupItem.append(inputTitle, textarea, smallText, saveButton, deleteButton);
     listGroup.append(listGroupItem);
     toDoCol.append(listGroup);
@@ -101,7 +87,9 @@ $(".add-button").click( () => {
 
 function save(task) {
     const title = $("#title_" + task.id).val();
-    const details = $("#details_" + task.id).val();
+    const trimmedTitle = $.trim(title);
+    const details = $("#details_" + task.id).val().trim();
+    const trimmedDetails = $.trim(details);
     const dateCreated = $("#dateCreated_" + task.id).text();
 
     // load local storage
@@ -110,8 +98,8 @@ function save(task) {
     // create task object
     var newTask = {
         "id": task.id, 
-        "title": title,
-        "details": details,
+        "title": trimmedTitle,
+        "details": trimmedDetails,
         "dateCreated": dateCreated,
         "status": "toDo",
     };
@@ -126,8 +114,6 @@ function save(task) {
 function deleteTask(task) {
     // console.log(task.id);
     var tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
- 
-
     for (let i = 0; i < tasks.length; i++) {
         if (task.id === tasks[i].id) {
             const index = tasks.findIndex(item => item.id === task.id);
@@ -138,8 +124,6 @@ function deleteTask(task) {
             window.location.reload();
         }
     }
-    // let index = selectedTask.findIndex(id => id == selectedTask.id)
-    // console.log(selectedTask);
 }
 
 // Drag & Drop Functionality
@@ -154,5 +138,20 @@ function drag(event) {
 function drop(event) {
     event.preventDefault();
     var data = event.dataTransfer.getData("text");
+    var tasks = JSON.parse(localStorage.getItem("tasks") || "[]");
+    for (let i = 0; i < tasks.length; i++) {
+        if (data === tasks[i].id) {
+            const index = tasks.findIndex(item => item.id === data);
+            if (event.target.id === "toDo") {
+                tasks[index].status = "toDo"
+            } else if (event.target.id === "inProgress") {
+                tasks[index].status = "inProgress"
+            } else {
+                tasks[index].status = "done"
+            }
+             // save to local storage
+            localStorage.setItem("tasks", JSON.stringify(tasks)); 
+        }
+    }
     event.target.appendChild(document.getElementById(data));
 }
