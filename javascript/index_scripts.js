@@ -12,7 +12,7 @@ $(document).ready(function() {
     if (dissmissedWelcomeAlert === "true") {
        
     } else {
-        const dissmissedWelcomeAlert = confirm("Welcome to Task Manager! Click the add (+) button on the 'To Do' column to add a new task. Save it, and drag it to the other columns as needed!");
+        const dissmissedWelcomeAlert = confirm("Welcome to Task Manager! Click the add (+) button on the 'To Do' column to add a new task. Type some information and drag it to the other columns as needed!");
         if (dissmissedWelcomeAlert === true) {
             localStorage.setItem("dissmissedWelcomeAlert", true)
         } else {
