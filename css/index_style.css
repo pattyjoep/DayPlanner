@@ -43,6 +43,8 @@
     position: absolute;
     bottom: -3px;
     right: -3px;
+    width: 2rem;
+    height: 2rem;
     color: #fff;
     background-color: #ea4747;
     border: 3px solid white;
