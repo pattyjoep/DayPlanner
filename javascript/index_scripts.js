@@ -124,13 +124,12 @@ function deleteTask(task) {
     
                  // save to local storage
                 localStorage.setItem("tasks", JSON.stringify(tasks)); 
-                window.location.reload();
             };
         };
+        window.location.reload();
     } else {
         
     }
-    
 };
 
 // Drag & Drop Functionality
